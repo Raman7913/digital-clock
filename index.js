@@ -1,7 +1,9 @@
 function getTime(){
     const now = new Date();
 
+    let meridiem;
     let hours = now.getHours();
+    meridiem = hours>=12 ? 'PM' : 'AM'
     hours = hours % 12;
     if (hours === 0){
         hours = 12;
@@ -12,7 +14,7 @@ function getTime(){
 
     const clockString = document.querySelector('.clock')
 
-    let timeString = `${hours}:${minutes}:${seconds}`;
+    let timeString = `${hours}:${minutes}:${seconds} ${meridiem}`;
 
     clockString.innerHTML = timeString;
 
